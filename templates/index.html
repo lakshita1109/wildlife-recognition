@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wildlife AI – Animal Image Classification &amp; Recognition System</title>
+  <meta name="description" content="Upload an animal photo and let a deep-learning model identify it.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#home" class="brand" aria-label="Wildlife AI home">
+      <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="22" fill="#2d5a3d"/>
+        <path d="M12 30c0-9 7-16 17-16 3 0 5 .6 7 1.6-1 9-8 17-18 17-2.6 0-4.6-.8-6-2.6z" fill="#a8d5a2"/>
+        <path d="M14 36c6-8 12-13 20-17" stroke="#2d5a3d" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="31" cy="24" r="2" fill="#2d5a3d"/>
+      </svg>
+      <span>Wildlife <strong>AI</strong></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#recognize">Animal Recognition</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <svg class="hero-art" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 400V250l180-90 160 70 200-130 220 120 180-80 200 100 100-50v210z" fill="#1f4430" opacity=".55"/>
+        <path d="M0 400V300l140-60 180 50 220-90 240 80 200-60 260 90v90z" fill="#163524" opacity=".8"/>
+        <g fill="#0f2a1c">
+          <path d="M80 400l30-110 30 110z"/><path d="M130 400l25-85 25 85z"/>
+          <path d="M1180 400l30-120 30 120z"/><path d="M1240 400l25-90 25 90z"/><path d="M1300 400l32-115 32 115z"/>
+        </g>
+      </svg>
+      <div class="hero-inner">
+        <span class="badge" id="modeBadge">Loading model…</span>
+        <h1>Identify wildlife with <span>artificial intelligence</span></h1>
+        <p>Upload a photo and our deep-learning model will analyse it and tell you which animal it sees,
+           how confident it is, and what makes that animal special.</p>
+        <div class="hero-actions">
+          <a href="#recognize" class="btn btn-primary" id="heroUpload">Upload an Image</a>
+          <a href="#about" class="btn btn-ghost">How it works</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECOGNITION -->
+    <section class="section" id="recognize">
+      <div class="container">
+        <h2 class="section-title">Animal Recognition</h2>
+        <p class="section-sub">Drop in a clear photo of a single animal for the best results.</p>
+
+        <div id="alertBox" class="alert" role="alert" hidden></div>
+
+        <div class="recognize-grid">
+          <!-- Upload card -->
+          <div class="card">
+            <div class="dropzone" id="dropzone" tabindex="0" role="button"
+                 aria-label="Drop an image here or press Enter to browse">
+              <div class="dz-empty" id="dzEmpty">
+                <svg viewBox="0 0 64 64" class="dz-icon" aria-hidden="true">
+                  <path d="M32 44V20M32 20l-10 10M32 20l10 10" stroke="#2d5a3d" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 44v6a4 4 0 0 0 4 4h32a4 4 0 0 0 4-4v-6" stroke="#8b6b4a" stroke-width="4" fill="none" stroke-linecap="round"/>
+                </svg>
+                <p><strong>Drag &amp; drop</strong> an animal image here</p>
+                <p class="muted">or</p>
+                <button type="button" class="btn btn-secondary" id="browseBtn">Browse Image</button>
+              </div>
+              <img id="previewImg" class="preview" alt="Selected image preview" hidden>
+            </div>
+            <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.webp,.bmp,image/jpeg,image/png,image/webp,image/bmp" hidden>
+
+            <p class="hint">Supported formats: {{ extensions | map('upper') | join(', ') }} &nbsp;·&nbsp; Max size: {{ max_mb }} MB</p>
+            <p class="file-name" id="fileName"></p>
+
+            <div class="actions">
+              <button type="button" class="btn btn-primary" id="identifyBtn" disabled>Identify Animal</button>
+              <button type="button" class="btn btn-ghost-dark" id="clearBtn" hidden>Clear</button>
+            </div>
+          </div>
+
+          <!-- Result card -->
+          <div class="card result-card" id="resultCard">
+            <div class="placeholder" id="resultPlaceholder">
+              <p class="muted">Your result will appear here.</p>
+            </div>
+
+            <div class="loading" id="loading" hidden>
+              <div class="spinner" aria-hidden="true"></div>
+              <p>Analysing image…</p>
+            </div>
+
+            <div id="resultContent" hidden>
+              <div class="result-head">
+                <img id="resultImg" class="result-img" alt="Uploaded image">
+                <div>
+                  <p class="label">Predicted animal</p>
+                  <h3 id="animalName">–</h3>
+                  <p class="confidence"><span id="confidenceValue">0</span>% confidence</p>
+                </div>
+              </div>
+              <p class="notice" id="resultMessage" hidden></p>
+              <h4>Top 3 predictions</h4>
+              <ul class="bars" id="barsList"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animal info -->
+        <div class="card info-card" id="infoCard" hidden>
+          <h3 id="infoName">Animal</h3>
+          <div class="info-grid">
+            <div><span class="label">Category</span><p id="infoCategory">–</p></div>
+            <div><span class="label">Habitat</span><p id="infoHabitat">–</p></div>
+            <div><span class="label">Diet</span><p id="infoDiet">–</p></div>
+          </div>
+          <h4>Interesting facts</h4>
+          <ul class="facts" id="infoFacts"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container">
+        <h2 class="section-title">About the Project</h2>
+        <div class="about-grid">
+          <div class="card">
+            <h3>What it does</h3>
+            <p>Wildlife AI is a web application for animal and wildlife monitoring. You upload a photo, the
+               server runs it through a neural network, and you get the most likely animals together with
+               confidence scores and a short fact sheet.</p>
+          </div>
+          <div class="card">
+            <h3>How image classification works</h3>
+            <p>An image is a grid of pixel values. A convolutional neural network (CNN) passes those pixels
+               through many layers: early layers detect edges and colours, middle layers detect textures and
+               shapes such as fur, feathers or scales, and the final layers combine them into a score for
+               every animal it knows.</p>
+          </div>
+          <div class="card">
+            <h3>How this model recognises animals</h3>
+            <p>It uses <strong>MobileNetV3</strong>, a compact CNN already trained on over a million
+               ImageNet photos (transfer learning). The image is resized to 224×224, normalised, and
+               converted to probabilities with softmax. If the best probability is too low the app says it
+               is unsure instead of guessing.</p>
+          </div>
+        </div>
+        <div class="card model-card">
+          <h3>Current model</h3>
+          <p id="modelDetails" class="muted">Loading…</p>
+          <details id="supportedWrap" hidden>
+            <summary>Animals this model can recognise (<span id="supportedCount">0</span>)</summary>
+            <div class="chips" id="supportedList"></div>
+          </details>
+          <p class="muted small">The model can only recognise animals it was trained on. Anything else (and
+             non-animal pictures) may be rejected or misidentified.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="brand-small">Wildlife <strong>AI</strong> – Animal Image Classification &amp; Recognition System</span>
+      <span class="muted-light">College project · Built with PyTorch, Flask, HTML, CSS &amp; JavaScript</span>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache / build files
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Environment variables / secrets
+.env
+.env.*
+kaggle.json
+
+# Uploaded images (keep the folder itself)
+uploads/*
+!uploads/.gitkeep
+
+# Dataset images (keep the README that explains how to get them)
+dataset/*
+!dataset/README.md
+
+# Trained models and training artefacts (keep the README)
+trained_models/*
+!trained_models/README.md
+*.pth
+*.pt
+*.onnx
+*.h5
+
+# Training outputs (graphs, histories); keep the folder itself
+outputs/*
+!outputs/.gitkeep
+
+# Logs and temporary files
+*.log
+logs/
+*.tmp
+*.bak
+.cache/
+
+# IDE / OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
