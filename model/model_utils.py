@@ -116,15 +116,19 @@ def display_name(label):
 class AnimalClassifier:
     """Loads a model once and classifies PIL images.
 
-    mode: "auto"       -> custom model if available and valid, otherwise pretrained
+    mode: "auto"       -> best available: a broad custom model (many classes) is used alone;
+                          a small "specialist" custom model (e.g. pet breeds) is combined with
+                          the pretrained model (hybrid); with no custom model: pretrained
+          "hybrid"     -> pretrained model decides the animal; if it is a cat or dog, the
+                          custom breed model decides the breed
           "pretrained" -> always ImageNet-pretrained
           "custom"     -> only the custom model (fails if it is missing)
     """
 
     def __init__(self, mode="auto"):
         mode = (mode or "auto").lower()
-        if mode not in ("auto", "pretrained", "custom"):
-            raise ValueError("mode must be 'auto', 'pretrained' or 'custom'")
+        if mode not in ("auto", "hybrid", "pretrained", "custom"):
+            raise ValueError("mode must be 'auto', 'hybrid', 'pretrained' or 'custom'")
         self.requested_mode = mode
         self.mode = None                # actual mode after load(): "pretrained" / "custom"
         self.model = None
@@ -134,6 +138,8 @@ class AnimalClassifier:
         self.threshold = cfg.CONFIDENCE_THRESHOLD_PRETRAINED
         self._transform = get_eval_transform()
         self._group_indices = {}        # pretrained mode: label -> LongTensor of ImageNet indices
+        self.breed_model = None         # hybrid mode: custom model used for cats and dogs
+        self.breed_names = []
         self.device = torch.device("cpu")
 
     # -- loading -------------------------------------------------------------
@@ -143,20 +149,40 @@ class AnimalClassifier:
 
     def load(self):
         """Load the model (call once at startup). Raises ModelLoadError on failure."""
-        if self.requested_mode in ("auto", "custom"):
-            try:
-                self._load_custom()
-                return
-            except ModelLoadError as exc:
-                if self.requested_mode == "custom":
-                    raise
-                # auto: fall back, but remember why (None if there was simply no custom model)
-                self.notice = str(exc) if cfg.MODEL_PATH.exists() else None
-                if self.notice:
-                    logger.warning("Custom model unusable, falling back to pretrained: %s", exc)
-        self._load_pretrained()
+        mode = self.requested_mode
+        if mode == "pretrained":
+            self._load_pretrained()
+            return
+        if mode == "custom":
+            net, names, info = self._read_custom()
+            self._apply_custom(net, names, info)
+            return
 
-    def _load_custom(self):
+        # "auto" or "hybrid"
+        try:
+            net, names, info = self._read_custom()
+        except ModelLoadError as exc:
+            # auto/hybrid: fall back, but remember why (None if there was simply no custom model)
+            self.notice = str(exc) if cfg.MODEL_PATH.exists() else None
+            if self.notice:
+                logger.warning("Custom model unusable, falling back to pretrained: %s", exc)
+            self._load_pretrained()
+            return
+
+        if mode == "auto" and len(names) > cfg.SPECIALIST_MAX_CLASSES:
+            self._apply_custom(net, names, info)   # broad custom model: use it alone
+            return
+
+        self._load_pretrained()                     # specialist custom model: hybrid
+        self.breed_model, self.breed_names = net, names
+        self.class_names = sorted(set(self.class_names) | set(names))
+        self.model_info = info
+        self.mode = "hybrid"
+        logger.info("Hybrid mode: pretrained animals + custom model (%d classes) for %s",
+                    len(names), sorted(cfg.HYBRID_PET_LABELS))
+
+    def _read_custom(self):
+        """Read the custom model files. Returns (net, class_names, model_info)."""
         if not cfg.MODEL_PATH.exists() or not cfg.CLASS_NAMES_PATH.exists():
             raise ModelLoadError(
                 "No custom model found. Run 'python train.py' to create one "
@@ -174,15 +200,20 @@ class AnimalClassifier:
             raise ModelLoadError(f"Could not load the custom model: {exc}") from exc
 
         net.eval()
-        self.model = net
-        self.class_names = class_names
-        self.mode = "custom"
-        self.threshold = cfg.CONFIDENCE_THRESHOLD_CUSTOM
+        info = {}
         if cfg.MODEL_INFO_PATH.exists():
             try:
-                self.model_info = json.loads(cfg.MODEL_INFO_PATH.read_text(encoding="utf-8"))
+                info = json.loads(cfg.MODEL_INFO_PATH.read_text(encoding="utf-8"))
             except (OSError, ValueError):
-                self.model_info = {}
+                info = {}
+        return net, class_names, info
+
+    def _apply_custom(self, net, class_names, info):
+        self.model = net
+        self.class_names = class_names
+        self.model_info = info
+        self.mode = "custom"
+        self.threshold = cfg.CONFIDENCE_THRESHOLD_CUSTOM
         logger.info("Loaded custom model with %d classes", len(class_names))
 
     def _load_pretrained(self):
@@ -219,6 +250,15 @@ class AnimalClassifier:
         logger.info("Loaded pretrained model with %d animal labels", len(groups))
 
     # -- inference -----------------------------------------------------------
+    @staticmethod
+    def _rank(scores, threshold):
+        ranked = sorted(scores.items(), key=lambda kv: kv[1], reverse=True)[: cfg.TOP_K]
+        top = [
+            {"label": label, "animal": display_name(label), "confidence": round(p * 100, 2)}
+            for label, p in ranked
+        ]
+        return {"top_predictions": top, "identified": top[0]["confidence"] >= threshold}
+
     @torch.inference_mode()
     def predict(self, image):
         """Classify a PIL RGB image. Returns a dict with the top predictions."""
@@ -230,18 +270,21 @@ class AnimalClassifier:
 
         if self.mode == "custom":
             scores = {name: float(probs[i]) for i, name in enumerate(self.class_names)}
-        else:
-            scores = {label: float(probs[idx].sum()) for label, idx in self._group_indices.items()}
+            return self._rank(scores, self.threshold)
 
-        ranked = sorted(scores.items(), key=lambda kv: kv[1], reverse=True)[: cfg.TOP_K]
-        top = [
-            {"label": label, "animal": display_name(label), "confidence": round(p * 100, 2)}
-            for label, p in ranked
-        ]
-        return {
-            "top_predictions": top,
-            "identified": top[0]["confidence"] >= self.threshold,
-        }
+        scores = {label: float(probs[idx].sum()) for label, idx in self._group_indices.items()}
+        result = self._rank(scores, self.threshold)
+
+        # Hybrid: a recognised cat or dog is handed to the custom breed model
+        if self.mode == "hybrid" and result["identified"] \
+                and result["top_predictions"][0]["label"] in cfg.HYBRID_PET_LABELS:
+            breed_probs = torch.softmax(self.breed_model(batch)[0], dim=0)
+            breed_scores = {n: float(breed_probs[i]) for i, n in enumerate(self.breed_names)}
+            breed = self._rank(breed_scores, cfg.CONFIDENCE_THRESHOLD_CUSTOM)
+            if breed["identified"]:
+                return breed
+            # breed model unsure: still report the confident "Cat"/"Dog" answer
+        return result
 
     def supported_animals(self):
         return [display_name(c) for c in self.class_names]

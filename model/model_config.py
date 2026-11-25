@@ -39,7 +39,13 @@ IMAGENET_STD = (0.229, 0.224, 0.225)
 TOP_K = 3
 # Minimum confidence (in %) for the top prediction to be reported as an answer.
 CONFIDENCE_THRESHOLD_PRETRAINED = 35.0
-CONFIDENCE_THRESHOLD_CUSTOM = 50.0
+CONFIDENCE_THRESHOLD_CUSTOM = 30.0
+# Hybrid mode: a custom model with at most this many classes is treated as a "specialist"
+# (e.g. 37 pet breeds) and is combined with the pretrained model instead of replacing it.
+SPECIALIST_MAX_CLASSES = 60
+# In hybrid mode, when the pretrained model says one of these, the custom model picks the breed.
+HYBRID_PET_LABELS = {"cat", "dog"}
+
 LOW_CONFIDENCE_MESSAGE = (
     "Unable to confidently identify this animal. Please upload a clearer image."
 )

@@ -1,105 +1,1225 @@
 {
-  "cat": {"category": "Mammal", "habitat": "Homes and a wide range of natural habitats worldwide", "diet": "Carnivore", "facts": ["Cats have excellent night vision.", "Whiskers help cats sense nearby objects and narrow spaces."]},
-  "dog": {"category": "Mammal", "habitat": "Domestic environments worldwide", "diet": "Omnivore (mostly meat)", "facts": ["Dogs were domesticated from wolves more than 15,000 years ago.", "A dog's sense of smell is thousands of times more sensitive than a human's."]},
-  "cow": {"category": "Mammal", "habitat": "Farms, pastures and grasslands", "diet": "Herbivore", "facts": ["Cows have four stomach compartments to digest tough plant material.", "They can recognise many individual herd members."]},
-  "ox": {"category": "Mammal", "habitat": "Farms, pastures and grasslands", "diet": "Herbivore", "facts": ["Oxen are adult cattle, usually castrated males, trained to pull loads.", "They have been used for ploughing and transport for thousands of years."]},
-  "buffalo": {"category": "Mammal", "habitat": "Wetlands, river valleys and farmland in Asia and Africa", "diet": "Herbivore", "facts": ["Water buffalo love to wallow in mud and water to cool off.", "They are important farm animals for milk and field work in South Asia."]},
-  "horse": {"category": "Mammal", "habitat": "Grasslands, pastures and stables", "diet": "Herbivore", "facts": ["Horses can sleep both standing up and lying down.", "A horse's eyes sit on the sides of its head, giving it a very wide field of view."]},
-  "sheep": {"category": "Mammal", "habitat": "Grasslands, hills and farms", "diet": "Herbivore", "facts": ["Sheep have rectangular pupils that give them a wide view of their surroundings.", "They are one of the earliest animals domesticated by humans."]},
-  "goat": {"category": "Mammal", "habitat": "Mountains, hills and farms", "diet": "Herbivore", "facts": ["Goats are excellent climbers and can balance on steep rocky ledges.", "Their rectangular pupils let them see almost 360 degrees."]},
-  "pig": {"category": "Mammal", "habitat": "Farms and domestic environments", "diet": "Omnivore", "facts": ["Pigs are considered among the most intelligent farm animals.", "They do not sweat much, so they wallow in mud to keep cool."]},
-  "rabbit": {"category": "Mammal", "habitat": "Meadows, woodland edges, burrows and homes", "diet": "Herbivore", "facts": ["A rabbit's teeth never stop growing.", "Rabbits can rotate their ears to pick up sounds from different directions."]},
-  "hare": {"category": "Mammal", "habitat": "Open fields, grasslands and tundra", "diet": "Herbivore", "facts": ["Hares are born with fur and open eyes and can run soon after birth.", "They can reach speeds of around 60 km/h."]},
-  "donkey": {"category": "Mammal", "habitat": "Dry grasslands, farms and villages", "diet": "Herbivore", "facts": ["Donkeys are well adapted to dry, harsh environments.", "They have a very strong memory for places and other animals."]},
-  "lion": {"category": "Mammal", "habitat": "African savannas and grasslands (a small population lives in India's Gir Forest)", "diet": "Carnivore", "facts": ["Lions are the only big cats that live in social groups called prides.", "A lion's roar can be heard from about 8 km away."]},
-  "tiger": {"category": "Mammal", "habitat": "Forests, mangroves and grasslands of Asia", "diet": "Carnivore", "facts": ["Every tiger has a unique stripe pattern, like a fingerprint.", "Tigers are the largest living cat species and are strong swimmers."]},
-  "leopard": {"category": "Mammal", "habitat": "Forests, savannas, mountains and even areas near cities in Africa and Asia", "diet": "Carnivore", "facts": ["Leopards often carry their prey up into trees to protect it.", "Their rosette-shaped spots help them blend into dappled light."]},
-  "cheetah": {"category": "Mammal", "habitat": "Open savannas and grasslands, mainly in Africa", "diet": "Carnivore", "facts": ["The cheetah is the fastest land animal, reaching about 100 km/h in short sprints.", "Cheetahs cannot roar; they chirp and purr instead."]},
-  "elephant": {"category": "Mammal", "habitat": "Savannas, forests and grasslands of Africa and Asia", "diet": "Herbivore", "facts": ["Elephants are the largest land animals on Earth.", "Their trunks contain tens of thousands of muscle units and can pick up a single peanut."]},
-  "bear": {"category": "Mammal", "habitat": "Forests, mountains and Arctic regions", "diet": "Omnivore", "facts": ["Many bears hibernate or enter a deep winter sleep to survive food shortages.", "Bears have an excellent sense of smell, far better than a dog's."]},
-  "wolf": {"category": "Mammal", "habitat": "Forests, tundra, mountains and grasslands of the Northern Hemisphere", "diet": "Carnivore", "facts": ["Wolves live and hunt in family groups called packs.", "Howling helps wolves communicate across long distances."]},
-  "fox": {"category": "Mammal", "habitat": "Forests, grasslands, deserts, tundra and urban areas", "diet": "Omnivore", "facts": ["Foxes can hear small animals digging underground.", "The red fox has the widest geographic range of any wild land carnivore."]},
-  "coyote": {"category": "Mammal", "habitat": "Prairies, deserts, forests and cities in North America", "diet": "Omnivore", "facts": ["Coyotes are highly adaptable and have expanded into cities.", "They communicate using howls, yips and barks."]},
-  "deer": {"category": "Mammal", "habitat": "Forests, grasslands and wetlands", "diet": "Herbivore", "facts": ["Male deer grow new antlers every year.", "Fawns are born with white spots that help camouflage them."]},
-  "reindeer": {"category": "Mammal", "habitat": "Arctic tundra and northern forests", "diet": "Herbivore (lichens, grasses and shrubs)", "facts": ["Both male and female reindeer grow antlers.", "Their hooves widen in winter to walk on snow and in summer to cross soft ground."]},
-  "antelope": {"category": "Mammal", "habitat": "Savannas, grasslands and deserts, mostly in Africa and Asia", "diet": "Herbivore", "facts": ["Many antelopes can leap and sprint rapidly to escape predators.", "Unlike deer, antelopes keep their horns for life."]},
-  "monkey": {"category": "Mammal", "habitat": "Tropical forests, savannas and mountains", "diet": "Omnivore", "facts": ["Monkeys live in social groups and communicate with calls and gestures.", "Many New World monkeys have tails that can grip branches."]},
-  "gorilla": {"category": "Mammal", "habitat": "Tropical and mountain forests of central Africa", "diet": "Herbivore", "facts": ["Gorillas are the largest living primates.", "Adult males are called silverbacks because of the silver hair on their backs."]},
-  "chimpanzee": {"category": "Mammal", "habitat": "Rainforests and woodland savannas of Africa", "diet": "Omnivore", "facts": ["Chimpanzees use tools, such as sticks, to get insects.", "They share about 98% of their DNA with humans."]},
-  "orangutan": {"category": "Mammal", "habitat": "Rainforests of Borneo and Sumatra", "diet": "Omnivore (mostly fruit)", "facts": ["The name means 'person of the forest' in Malay.", "Orangutans build a new sleeping nest in the trees almost every night."]},
-  "zebra": {"category": "Mammal", "habitat": "Savannas and grasslands of Africa", "diet": "Herbivore", "facts": ["No two zebras have exactly the same stripe pattern.", "A zebra foal can stand and walk within about an hour of birth."]},
-  "panda": {"category": "Mammal", "habitat": "Bamboo forests in the mountains of central China", "diet": "Herbivore (mostly bamboo)", "facts": ["A giant panda can eat 12 kg or more of bamboo a day.", "Pandas have an enlarged wrist bone that works like a thumb for gripping bamboo."]},
-  "hippopotamus": {"category": "Mammal", "habitat": "Rivers, lakes and swamps of sub-Saharan Africa", "diet": "Herbivore", "facts": ["Hippos spend most of the day in water to protect their skin from the sun.", "Despite their size, they can run faster than a human over short distances."]},
-  "hyena": {"category": "Mammal", "habitat": "Savannas, grasslands and semi-deserts of Africa and Asia", "diet": "Carnivore and scavenger", "facts": ["Spotted hyenas are skilled hunters, not just scavengers.", "They have extremely strong jaws that can crush bone."]},
-  "rhinoceros": {"category": "Mammal", "habitat": "Grasslands, savannas and forests of Africa and Asia", "diet": "Herbivore", "facts": ["A rhino's horn is made of keratin, the same material as human hair and nails.", "Several rhino species are critically endangered because of poaching."]},
-  "camel": {"category": "Mammal", "habitat": "Deserts of Africa, the Middle East and Asia", "diet": "Herbivore", "facts": ["A camel's hump stores fat, not water.", "Camels have long eyelashes and closable nostrils to keep out sand."]},
-  "kangaroo": {"category": "Mammal (marsupial)", "habitat": "Grasslands, forests and scrublands of Australia", "diet": "Herbivore", "facts": ["Kangaroos cannot walk backwards easily.", "Baby kangaroos (joeys) continue to develop inside their mother's pouch."]},
-  "koala": {"category": "Mammal (marsupial)", "habitat": "Eucalyptus forests of eastern Australia", "diet": "Herbivore (eucalyptus leaves)", "facts": ["Koalas sleep up to 18-22 hours a day.", "They are not bears; they are marsupials."]},
-  "wombat": {"category": "Mammal (marsupial)", "habitat": "Forests, mountains and heathland of Australia", "diet": "Herbivore", "facts": ["Wombats produce cube-shaped droppings.", "They dig large burrow systems with powerful claws."]},
-  "possum": {"category": "Mammal (marsupial)", "habitat": "Forests, farmland and suburbs of the Americas and Australasia", "diet": "Omnivore", "facts": ["Opossums in the Americas are the only marsupials found north of Mexico.", "Some opossums 'play dead' when threatened."]},
-  "okapi": {"category": "Mammal", "habitat": "Rainforests of the Democratic Republic of the Congo", "diet": "Herbivore", "facts": ["The okapi is the closest living relative of the giraffe.", "Its striped legs resemble a zebra's, but it is not related to zebras."]},
-  "bison": {"category": "Mammal", "habitat": "Prairies, grasslands and forests of North America and Europe", "diet": "Herbivore", "facts": ["Bison are the largest land mammals in North America.", "They can run at about 55 km/h despite their size."]},
-  "boar": {"category": "Mammal", "habitat": "Forests, woodlands and farmland across Eurasia and beyond", "diet": "Omnivore", "facts": ["Wild boars are the ancestors of domestic pigs.", "They use their snouts to dig for roots and insects."]},
-  "badger": {"category": "Mammal", "habitat": "Woodlands, grasslands and burrows (setts)", "diet": "Omnivore", "facts": ["Badgers live in large underground burrow systems called setts.", "They are mostly active at night."]},
-  "bat": {"category": "Mammal", "habitat": "Caves, forests, buildings and cities worldwide", "diet": "Insectivore, fruit-eater or nectar-feeder depending on species", "facts": ["Bats are the only mammals capable of true, sustained flight.", "Many bats use echolocation to find food in the dark."]},
-  "hedgehog": {"category": "Mammal", "habitat": "Woodlands, hedgerows, gardens and grasslands", "diet": "Insectivore", "facts": ["Hedgehogs curl into a spiny ball when threatened.", "A hedgehog has thousands of spines."]},
-  "porcupine": {"category": "Mammal (rodent)", "habitat": "Forests, deserts and grasslands", "diet": "Herbivore", "facts": ["Porcupine quills detach easily when touched by a predator.", "Some porcupines are skilled tree climbers."]},
-  "raccoon": {"category": "Mammal", "habitat": "Forests, wetlands and cities in North America", "diet": "Omnivore", "facts": ["Raccoons have very sensitive front paws and often 'wash' their food.", "They are active mostly at night."]},
-  "otter": {"category": "Mammal", "habitat": "Rivers, lakes and coasts", "diet": "Carnivore (fish and shellfish)", "facts": ["Sea otters hold hands while sleeping so they do not drift apart.", "Otters have the densest fur of any animal, with up to a million hairs per square inch (sea otters)."]},
-  "seal": {"category": "Mammal", "habitat": "Oceans and coasts, especially cold waters", "diet": "Carnivore (fish and squid)", "facts": ["Seals can hold their breath for many minutes while diving.", "A thick layer of blubber keeps them warm in cold water."]},
-  "dolphin": {"category": "Mammal", "habitat": "Oceans, coasts and some rivers", "diet": "Carnivore (fish and squid)", "facts": ["Dolphins use echolocation to find food and navigate.", "They communicate with whistles and clicks and live in social groups called pods."]},
-  "whale": {"category": "Mammal", "habitat": "Oceans worldwide", "diet": "Carnivore (krill, fish and squid)", "facts": ["The blue whale is the largest animal known to have ever lived.", "Whales are mammals: they breathe air and feed their calves milk."]},
-  "squirrel": {"category": "Mammal (rodent)", "habitat": "Forests, parks and gardens", "diet": "Omnivore (nuts, seeds, fruit)", "facts": ["Squirrels bury thousands of nuts each year and forget some, which grow into trees.", "Their bushy tails help with balance and keep them warm."]},
-  "mouse": {"category": "Mammal (rodent)", "habitat": "Fields, forests, homes and farms", "diet": "Omnivore", "facts": ["A mouse's teeth never stop growing.", "Mice have an excellent sense of smell and hearing."]},
-  "rat": {"category": "Mammal (rodent)", "habitat": "Cities, farms and forests worldwide", "diet": "Omnivore", "facts": ["Rats are intelligent and can learn mazes quickly.", "They are strong swimmers and climbers."]},
-  "hamster": {"category": "Mammal (rodent)", "habitat": "Dry grasslands and deserts (wild); homes (pets)", "diet": "Omnivore (seeds and grains)", "facts": ["Hamsters store food in their cheek pouches.", "Most hamsters are nocturnal."]},
-  "eagle": {"category": "Bird", "habitat": "Mountains, forests, coasts and open country", "diet": "Carnivore", "facts": ["Eagles can spot prey from several kilometres away.", "Many eagles build huge nests and reuse them for years."]},
-  "parrot": {"category": "Bird", "habitat": "Tropical and subtropical forests and woodlands", "diet": "Herbivore (seeds, nuts and fruit)", "facts": ["Many parrots can imitate human speech.", "Parrots have strong curved beaks and zygodactyl feet (two toes forward, two back)."]},
-  "owl": {"category": "Bird", "habitat": "Forests, grasslands, deserts and farmland worldwide", "diet": "Carnivore", "facts": ["Owls can rotate their heads about 270 degrees.", "Their feathers are soft, letting them fly almost silently."]},
-  "peacock": {"category": "Bird", "habitat": "Forests and farmland of South Asia", "diet": "Omnivore", "facts": ["Only males (peacocks) have the colourful train of feathers.", "The Indian peafowl is the national bird of India."]},
-  "crow": {"category": "Bird", "habitat": "Forests, farmland and cities worldwide", "diet": "Omnivore", "facts": ["Crows are among the most intelligent birds and can use tools.", "They can recognise individual human faces."]},
-  "pigeon": {"category": "Bird", "habitat": "Cities, farmland, cliffs and woodland", "diet": "Herbivore (seeds and grains)", "facts": ["Pigeons have been used to carry messages for thousands of years.", "They have a remarkable ability to find their way home."]},
-  "sparrow": {"category": "Bird", "habitat": "Towns, farmland, gardens and grasslands", "diet": "Omnivore (seeds and insects)", "facts": ["House sparrows live closely with humans.", "Sparrows are social and often feed in flocks."]},
-  "flamingo": {"category": "Bird", "habitat": "Shallow lakes, lagoons and coastal wetlands", "diet": "Omnivore (algae, shrimp, small invertebrates)", "facts": ["Flamingos get their pink colour from pigments in their food.", "They often stand on one leg, which may help them conserve body heat."]},
-  "penguin": {"category": "Bird (flightless)", "habitat": "Coasts and oceans of the Southern Hemisphere, especially Antarctica", "diet": "Carnivore (fish, squid and krill)", "facts": ["Penguins cannot fly, but they are superb swimmers.", "Emperor penguin fathers incubate the egg on their feet through the Antarctic winter."]},
-  "duck": {"category": "Bird", "habitat": "Lakes, rivers, ponds and wetlands", "diet": "Omnivore", "facts": ["Ducks have waterproof feathers coated with oil from a gland near the tail.", "Ducklings can swim within hours of hatching."]},
-  "goose": {"category": "Bird", "habitat": "Wetlands, lakes, grasslands and farmland", "diet": "Herbivore", "facts": ["Geese often migrate in V-shaped formations.", "They form strong, long-lasting pair bonds."]},
-  "swan": {"category": "Bird", "habitat": "Lakes, rivers, ponds and wetlands", "diet": "Herbivore (mostly water plants)", "facts": ["Swans mate for life in many species.", "Young swans are called cygnets."]},
-  "chicken": {"category": "Bird", "habitat": "Farms and backyards worldwide", "diet": "Omnivore", "facts": ["Chickens descend from the red junglefowl of Southeast Asia.", "A hen can lay a few hundred eggs a year, depending on breed."]},
-  "turkey": {"category": "Bird", "habitat": "Woodlands and farms, native to North America", "diet": "Omnivore", "facts": ["Male turkeys fan their tails and gobble to attract mates.", "Wild turkeys can fly short distances and roost in trees."]},
-  "ostrich": {"category": "Bird (flightless)", "habitat": "Savannas and deserts of Africa", "diet": "Omnivore", "facts": ["The ostrich is the largest and heaviest living bird.", "It can run at about 70 km/h."]},
-  "toucan": {"category": "Bird", "habitat": "Tropical rainforests of Central and South America", "diet": "Omnivore (mostly fruit)", "facts": ["The large colourful bill is light because it is mostly hollow.", "Toucans use their bills to reach fruit on thin branches."]},
-  "hummingbird": {"category": "Bird", "habitat": "Forests, gardens and meadows of the Americas", "diet": "Nectar and small insects", "facts": ["Hummingbirds can hover and even fly backwards.", "Their wings can beat dozens of times per second."]},
-  "hornbill": {"category": "Bird", "habitat": "Tropical forests and savannas of Africa and Asia", "diet": "Omnivore (mostly fruit)", "facts": ["Hornbills have a large curved bill topped with a casque.", "In many species the female is sealed inside a tree hollow while nesting."]},
-  "woodpecker": {"category": "Bird", "habitat": "Forests and woodlands", "diet": "Insectivore", "facts": ["Woodpeckers drum on trees to find insects and communicate.", "Special skull structure helps absorb the shock of pecking."]},
-  "sandpiper": {"category": "Bird", "habitat": "Beaches, mudflats and wetlands", "diet": "Insectivore (small invertebrates)", "facts": ["Sandpipers probe mud and sand with long bills to find food.", "Many species migrate thousands of kilometres each year."]},
-  "pelecaniformes": {"category": "Bird", "habitat": "Coasts, lakes, rivers and wetlands", "diet": "Carnivore (fish)", "facts": ["This group of water birds includes pelicans, herons, ibises and spoonbills.", "Pelicans have a large throat pouch used to scoop up fish."]},
-  "snake": {"category": "Reptile", "habitat": "Forests, deserts, grasslands, wetlands and oceans (most regions except Antarctica)", "diet": "Carnivore", "facts": ["Snakes smell by flicking their forked tongues.", "Most snakes are not venomous, but all wild snakes should be left alone."]},
-  "turtle": {"category": "Reptile", "habitat": "Oceans, rivers, ponds and land", "diet": "Omnivore, herbivore or carnivore depending on species", "facts": ["A turtle's shell is part of its skeleton, fused to its spine and ribs.", "Sea turtles return to the beaches where they hatched to lay eggs."]},
-  "crocodile": {"category": "Reptile", "habitat": "Rivers, lakes, swamps and coasts in tropical regions", "diet": "Carnivore", "facts": ["Crocodiles have changed little in millions of years.", "They have one of the strongest bites of any animal."]},
-  "lizard": {"category": "Reptile", "habitat": "Deserts, forests, grasslands and homes worldwide", "diet": "Insectivore, omnivore or carnivore depending on species", "facts": ["Many lizards can drop their tails to escape predators, and regrow them.", "Chameleons can move their eyes independently."]},
-  "frog": {"category": "Amphibian", "habitat": "Ponds, rivers, wetlands and forests", "diet": "Carnivore (insects and small animals)", "facts": ["Frogs start life as tadpoles in water.", "Many frogs absorb water and oxygen through their skin."]},
-  "fish": {"category": "Fish", "habitat": "Oceans, rivers, lakes and ponds", "diet": "Varies: herbivore, omnivore or carnivore", "facts": ["Fish breathe underwater using gills.", "There are more than 30,000 known species of fish."]},
-  "goldfish": {"category": "Fish", "habitat": "Freshwater ponds and aquariums", "diet": "Omnivore", "facts": ["Goldfish were first bred in China over a thousand years ago.", "They can recognise their owners and learn simple routines."]},
-  "shark": {"category": "Fish", "habitat": "Oceans worldwide", "diet": "Carnivore", "facts": ["A shark's skeleton is made of cartilage, not bone.", "Sharks can replace lost teeth throughout their lives."]},
-  "seahorse": {"category": "Fish", "habitat": "Shallow tropical and temperate coastal waters", "diet": "Carnivore (tiny crustaceans)", "facts": ["Male seahorses carry the eggs and give birth to the young.", "They swim upright and hold on to plants with their tails."]},
-  "butterfly": {"category": "Insect", "habitat": "Meadows, forests, gardens and wetlands worldwide", "diet": "Nectar (adults); leaves (caterpillars)", "facts": ["Butterflies go through complete metamorphosis: egg, caterpillar, pupa, adult.", "They taste with sensors on their feet."]},
-  "moth": {"category": "Insect", "habitat": "Forests, fields, gardens and cities worldwide", "diet": "Nectar or none (some adults do not eat)", "facts": ["Most moths are active at night.", "Moths and butterflies belong to the same order, Lepidoptera."]},
-  "caterpillar": {"category": "Insect (larva)", "habitat": "Plants in forests, fields and gardens", "diet": "Herbivore (leaves)", "facts": ["Caterpillars are the larval stage of butterflies and moths.", "A caterpillar's main job is to eat and grow before forming a pupa."]},
-  "bee": {"category": "Insect", "habitat": "Meadows, forests, gardens and hives", "diet": "Nectar and pollen", "facts": ["Bees pollinate many of the crops people eat.", "Honey bees communicate food locations by dancing."]},
-  "beetle": {"category": "Insect", "habitat": "Almost every land and freshwater habitat", "diet": "Varies by species", "facts": ["Beetles are the largest group of animals, with hundreds of thousands of species.", "Their front wings form hard cases that protect the flying wings."]},
-  "ladybugs": {"category": "Insect", "habitat": "Gardens, fields and forests", "diet": "Carnivore (mostly aphids)", "facts": ["A ladybug can eat many aphids a day, helping gardeners.", "Their bright colours warn predators that they taste bad."]},
-  "dragonfly": {"category": "Insect", "habitat": "Ponds, lakes, rivers and wetlands", "diet": "Carnivore (flying insects)", "facts": ["Dragonflies have existed for about 300 million years.", "Each of their four wings can move independently."]},
-  "grasshopper": {"category": "Insect", "habitat": "Grasslands, meadows and fields", "diet": "Herbivore", "facts": ["Grasshoppers can jump many times their body length.", "Many species make sounds by rubbing their legs against their wings."]},
-  "fly": {"category": "Insect", "habitat": "Almost everywhere humans live", "diet": "Varies: nectar, decaying matter or other liquids", "facts": ["Flies have only one pair of wings; the second pair is reduced to tiny balancing organs.", "Their compound eyes detect movement very quickly."]},
-  "mosquito": {"category": "Insect", "habitat": "Wetlands, forests and human settlements", "diet": "Nectar (males); nectar and blood (most females)", "facts": ["Only female mosquitoes bite, using blood for egg development.", "Mosquitoes spread diseases such as malaria and dengue."]},
-  "cockroach": {"category": "Insect", "habitat": "Homes, forests and sewers in warm regions", "diet": "Omnivore", "facts": ["Cockroaches have lived on Earth for hundreds of millions of years.", "Some species can survive for weeks without food."]},
-  "spider": {"category": "Arachnid", "habitat": "Almost every land habitat", "diet": "Carnivore (mostly insects)", "facts": ["Spiders have eight legs and are not insects.", "Not all spiders spin webs; some hunt or ambush prey."]},
-  "crab": {"category": "Crustacean", "habitat": "Oceans, shores, rivers and land", "diet": "Omnivore", "facts": ["Crabs walk sideways.", "They shed their hard shell as they grow."]},
-  "lobster": {"category": "Crustacean", "habitat": "Rocky ocean floors", "diet": "Omnivore", "facts": ["Lobsters have blue blood.", "They can regrow lost claws and legs."]},
-  "octopus": {"category": "Mollusc", "habitat": "Oceans, from coral reefs to the deep sea", "diet": "Carnivore", "facts": ["Octopuses have three hearts.", "They can change colour and texture to camouflage themselves."]},
-  "squid": {"category": "Mollusc", "habitat": "Oceans worldwide", "diet": "Carnivore", "facts": ["Squid move by jet propulsion.", "Giant squid have the largest eyes of any animal."]},
-  "oyster": {"category": "Mollusc", "habitat": "Shallow coastal waters and estuaries", "diet": "Filter feeder", "facts": ["Oysters filter large amounts of water each day.", "Some oysters produce pearls."]},
-  "jellyfish": {"category": "Cnidarian", "habitat": "Oceans worldwide", "diet": "Carnivore (plankton and small animals)", "facts": ["Jellyfish have no brain, heart or bones.", "Their bodies are more than 90% water."]},
-  "starfish": {"category": "Echinoderm", "habitat": "Ocean floors and tide pools", "diet": "Carnivore", "facts": ["Starfish (sea stars) can regenerate lost arms.", "They move using hundreds of tiny tube feet."]}
+  "cat": {
+    "category": "Mammal",
+    "habitat": "Homes and a wide range of natural habitats worldwide",
+    "diet": "Carnivore",
+    "facts": [
+      "Cats have excellent night vision.",
+      "Whiskers help cats sense nearby objects and narrow spaces."
+    ]
+  },
+  "dog": {
+    "category": "Mammal",
+    "habitat": "Domestic environments worldwide",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "Dogs were domesticated from wolves more than 15,000 years ago.",
+      "A dog's sense of smell is thousands of times more sensitive than a human's."
+    ]
+  },
+  "cow": {
+    "category": "Mammal",
+    "habitat": "Farms, pastures and grasslands",
+    "diet": "Herbivore",
+    "facts": [
+      "Cows have four stomach compartments to digest tough plant material.",
+      "They can recognise many individual herd members."
+    ]
+  },
+  "ox": {
+    "category": "Mammal",
+    "habitat": "Farms, pastures and grasslands",
+    "diet": "Herbivore",
+    "facts": [
+      "Oxen are adult cattle, usually castrated males, trained to pull loads.",
+      "They have been used for ploughing and transport for thousands of years."
+    ]
+  },
+  "buffalo": {
+    "category": "Mammal",
+    "habitat": "Wetlands, river valleys and farmland in Asia and Africa",
+    "diet": "Herbivore",
+    "facts": [
+      "Water buffalo love to wallow in mud and water to cool off.",
+      "They are important farm animals for milk and field work in South Asia."
+    ]
+  },
+  "horse": {
+    "category": "Mammal",
+    "habitat": "Grasslands, pastures and stables",
+    "diet": "Herbivore",
+    "facts": [
+      "Horses can sleep both standing up and lying down.",
+      "A horse's eyes sit on the sides of its head, giving it a very wide field of view."
+    ]
+  },
+  "sheep": {
+    "category": "Mammal",
+    "habitat": "Grasslands, hills and farms",
+    "diet": "Herbivore",
+    "facts": [
+      "Sheep have rectangular pupils that give them a wide view of their surroundings.",
+      "They are one of the earliest animals domesticated by humans."
+    ]
+  },
+  "goat": {
+    "category": "Mammal",
+    "habitat": "Mountains, hills and farms",
+    "diet": "Herbivore",
+    "facts": [
+      "Goats are excellent climbers and can balance on steep rocky ledges.",
+      "Their rectangular pupils let them see almost 360 degrees."
+    ]
+  },
+  "pig": {
+    "category": "Mammal",
+    "habitat": "Farms and domestic environments",
+    "diet": "Omnivore",
+    "facts": [
+      "Pigs are considered among the most intelligent farm animals.",
+      "They do not sweat much, so they wallow in mud to keep cool."
+    ]
+  },
+  "rabbit": {
+    "category": "Mammal",
+    "habitat": "Meadows, woodland edges, burrows and homes",
+    "diet": "Herbivore",
+    "facts": [
+      "A rabbit's teeth never stop growing.",
+      "Rabbits can rotate their ears to pick up sounds from different directions."
+    ]
+  },
+  "hare": {
+    "category": "Mammal",
+    "habitat": "Open fields, grasslands and tundra",
+    "diet": "Herbivore",
+    "facts": [
+      "Hares are born with fur and open eyes and can run soon after birth.",
+      "They can reach speeds of around 60 km/h."
+    ]
+  },
+  "donkey": {
+    "category": "Mammal",
+    "habitat": "Dry grasslands, farms and villages",
+    "diet": "Herbivore",
+    "facts": [
+      "Donkeys are well adapted to dry, harsh environments.",
+      "They have a very strong memory for places and other animals."
+    ]
+  },
+  "lion": {
+    "category": "Mammal",
+    "habitat": "African savannas and grasslands (a small population lives in India's Gir Forest)",
+    "diet": "Carnivore",
+    "facts": [
+      "Lions are the only big cats that live in social groups called prides.",
+      "A lion's roar can be heard from about 8 km away."
+    ]
+  },
+  "tiger": {
+    "category": "Mammal",
+    "habitat": "Forests, mangroves and grasslands of Asia",
+    "diet": "Carnivore",
+    "facts": [
+      "Every tiger has a unique stripe pattern, like a fingerprint.",
+      "Tigers are the largest living cat species and are strong swimmers."
+    ]
+  },
+  "leopard": {
+    "category": "Mammal",
+    "habitat": "Forests, savannas, mountains and even areas near cities in Africa and Asia",
+    "diet": "Carnivore",
+    "facts": [
+      "Leopards often carry their prey up into trees to protect it.",
+      "Their rosette-shaped spots help them blend into dappled light."
+    ]
+  },
+  "cheetah": {
+    "category": "Mammal",
+    "habitat": "Open savannas and grasslands, mainly in Africa",
+    "diet": "Carnivore",
+    "facts": [
+      "The cheetah is the fastest land animal, reaching about 100 km/h in short sprints.",
+      "Cheetahs cannot roar; they chirp and purr instead."
+    ]
+  },
+  "elephant": {
+    "category": "Mammal",
+    "habitat": "Savannas, forests and grasslands of Africa and Asia",
+    "diet": "Herbivore",
+    "facts": [
+      "Elephants are the largest land animals on Earth.",
+      "Their trunks contain tens of thousands of muscle units and can pick up a single peanut."
+    ]
+  },
+  "bear": {
+    "category": "Mammal",
+    "habitat": "Forests, mountains and Arctic regions",
+    "diet": "Omnivore",
+    "facts": [
+      "Many bears hibernate or enter a deep winter sleep to survive food shortages.",
+      "Bears have an excellent sense of smell, far better than a dog's."
+    ]
+  },
+  "wolf": {
+    "category": "Mammal",
+    "habitat": "Forests, tundra, mountains and grasslands of the Northern Hemisphere",
+    "diet": "Carnivore",
+    "facts": [
+      "Wolves live and hunt in family groups called packs.",
+      "Howling helps wolves communicate across long distances."
+    ]
+  },
+  "fox": {
+    "category": "Mammal",
+    "habitat": "Forests, grasslands, deserts, tundra and urban areas",
+    "diet": "Omnivore",
+    "facts": [
+      "Foxes can hear small animals digging underground.",
+      "The red fox has the widest geographic range of any wild land carnivore."
+    ]
+  },
+  "coyote": {
+    "category": "Mammal",
+    "habitat": "Prairies, deserts, forests and cities in North America",
+    "diet": "Omnivore",
+    "facts": [
+      "Coyotes are highly adaptable and have expanded into cities.",
+      "They communicate using howls, yips and barks."
+    ]
+  },
+  "deer": {
+    "category": "Mammal",
+    "habitat": "Forests, grasslands and wetlands",
+    "diet": "Herbivore",
+    "facts": [
+      "Male deer grow new antlers every year.",
+      "Fawns are born with white spots that help camouflage them."
+    ]
+  },
+  "reindeer": {
+    "category": "Mammal",
+    "habitat": "Arctic tundra and northern forests",
+    "diet": "Herbivore (lichens, grasses and shrubs)",
+    "facts": [
+      "Both male and female reindeer grow antlers.",
+      "Their hooves widen in winter to walk on snow and in summer to cross soft ground."
+    ]
+  },
+  "antelope": {
+    "category": "Mammal",
+    "habitat": "Savannas, grasslands and deserts, mostly in Africa and Asia",
+    "diet": "Herbivore",
+    "facts": [
+      "Many antelopes can leap and sprint rapidly to escape predators.",
+      "Unlike deer, antelopes keep their horns for life."
+    ]
+  },
+  "monkey": {
+    "category": "Mammal",
+    "habitat": "Tropical forests, savannas and mountains",
+    "diet": "Omnivore",
+    "facts": [
+      "Monkeys live in social groups and communicate with calls and gestures.",
+      "Many New World monkeys have tails that can grip branches."
+    ]
+  },
+  "gorilla": {
+    "category": "Mammal",
+    "habitat": "Tropical and mountain forests of central Africa",
+    "diet": "Herbivore",
+    "facts": [
+      "Gorillas are the largest living primates.",
+      "Adult males are called silverbacks because of the silver hair on their backs."
+    ]
+  },
+  "chimpanzee": {
+    "category": "Mammal",
+    "habitat": "Rainforests and woodland savannas of Africa",
+    "diet": "Omnivore",
+    "facts": [
+      "Chimpanzees use tools, such as sticks, to get insects.",
+      "They share about 98% of their DNA with humans."
+    ]
+  },
+  "orangutan": {
+    "category": "Mammal",
+    "habitat": "Rainforests of Borneo and Sumatra",
+    "diet": "Omnivore (mostly fruit)",
+    "facts": [
+      "The name means 'person of the forest' in Malay.",
+      "Orangutans build a new sleeping nest in the trees almost every night."
+    ]
+  },
+  "zebra": {
+    "category": "Mammal",
+    "habitat": "Savannas and grasslands of Africa",
+    "diet": "Herbivore",
+    "facts": [
+      "No two zebras have exactly the same stripe pattern.",
+      "A zebra foal can stand and walk within about an hour of birth."
+    ]
+  },
+  "panda": {
+    "category": "Mammal",
+    "habitat": "Bamboo forests in the mountains of central China",
+    "diet": "Herbivore (mostly bamboo)",
+    "facts": [
+      "A giant panda can eat 12 kg or more of bamboo a day.",
+      "Pandas have an enlarged wrist bone that works like a thumb for gripping bamboo."
+    ]
+  },
+  "hippopotamus": {
+    "category": "Mammal",
+    "habitat": "Rivers, lakes and swamps of sub-Saharan Africa",
+    "diet": "Herbivore",
+    "facts": [
+      "Hippos spend most of the day in water to protect their skin from the sun.",
+      "Despite their size, they can run faster than a human over short distances."
+    ]
+  },
+  "hyena": {
+    "category": "Mammal",
+    "habitat": "Savannas, grasslands and semi-deserts of Africa and Asia",
+    "diet": "Carnivore and scavenger",
+    "facts": [
+      "Spotted hyenas are skilled hunters, not just scavengers.",
+      "They have extremely strong jaws that can crush bone."
+    ]
+  },
+  "rhinoceros": {
+    "category": "Mammal",
+    "habitat": "Grasslands, savannas and forests of Africa and Asia",
+    "diet": "Herbivore",
+    "facts": [
+      "A rhino's horn is made of keratin, the same material as human hair and nails.",
+      "Several rhino species are critically endangered because of poaching."
+    ]
+  },
+  "camel": {
+    "category": "Mammal",
+    "habitat": "Deserts of Africa, the Middle East and Asia",
+    "diet": "Herbivore",
+    "facts": [
+      "A camel's hump stores fat, not water.",
+      "Camels have long eyelashes and closable nostrils to keep out sand."
+    ]
+  },
+  "kangaroo": {
+    "category": "Mammal (marsupial)",
+    "habitat": "Grasslands, forests and scrublands of Australia",
+    "diet": "Herbivore",
+    "facts": [
+      "Kangaroos cannot walk backwards easily.",
+      "Baby kangaroos (joeys) continue to develop inside their mother's pouch."
+    ]
+  },
+  "koala": {
+    "category": "Mammal (marsupial)",
+    "habitat": "Eucalyptus forests of eastern Australia",
+    "diet": "Herbivore (eucalyptus leaves)",
+    "facts": [
+      "Koalas sleep up to 18-22 hours a day.",
+      "They are not bears; they are marsupials."
+    ]
+  },
+  "wombat": {
+    "category": "Mammal (marsupial)",
+    "habitat": "Forests, mountains and heathland of Australia",
+    "diet": "Herbivore",
+    "facts": [
+      "Wombats produce cube-shaped droppings.",
+      "They dig large burrow systems with powerful claws."
+    ]
+  },
+  "possum": {
+    "category": "Mammal (marsupial)",
+    "habitat": "Forests, farmland and suburbs of the Americas and Australasia",
+    "diet": "Omnivore",
+    "facts": [
+      "Opossums in the Americas are the only marsupials found north of Mexico.",
+      "Some opossums 'play dead' when threatened."
+    ]
+  },
+  "okapi": {
+    "category": "Mammal",
+    "habitat": "Rainforests of the Democratic Republic of the Congo",
+    "diet": "Herbivore",
+    "facts": [
+      "The okapi is the closest living relative of the giraffe.",
+      "Its striped legs resemble a zebra's, but it is not related to zebras."
+    ]
+  },
+  "bison": {
+    "category": "Mammal",
+    "habitat": "Prairies, grasslands and forests of North America and Europe",
+    "diet": "Herbivore",
+    "facts": [
+      "Bison are the largest land mammals in North America.",
+      "They can run at about 55 km/h despite their size."
+    ]
+  },
+  "boar": {
+    "category": "Mammal",
+    "habitat": "Forests, woodlands and farmland across Eurasia and beyond",
+    "diet": "Omnivore",
+    "facts": [
+      "Wild boars are the ancestors of domestic pigs.",
+      "They use their snouts to dig for roots and insects."
+    ]
+  },
+  "badger": {
+    "category": "Mammal",
+    "habitat": "Woodlands, grasslands and burrows (setts)",
+    "diet": "Omnivore",
+    "facts": [
+      "Badgers live in large underground burrow systems called setts.",
+      "They are mostly active at night."
+    ]
+  },
+  "bat": {
+    "category": "Mammal",
+    "habitat": "Caves, forests, buildings and cities worldwide",
+    "diet": "Insectivore, fruit-eater or nectar-feeder depending on species",
+    "facts": [
+      "Bats are the only mammals capable of true, sustained flight.",
+      "Many bats use echolocation to find food in the dark."
+    ]
+  },
+  "hedgehog": {
+    "category": "Mammal",
+    "habitat": "Woodlands, hedgerows, gardens and grasslands",
+    "diet": "Insectivore",
+    "facts": [
+      "Hedgehogs curl into a spiny ball when threatened.",
+      "A hedgehog has thousands of spines."
+    ]
+  },
+  "porcupine": {
+    "category": "Mammal (rodent)",
+    "habitat": "Forests, deserts and grasslands",
+    "diet": "Herbivore",
+    "facts": [
+      "Porcupine quills detach easily when touched by a predator.",
+      "Some porcupines are skilled tree climbers."
+    ]
+  },
+  "raccoon": {
+    "category": "Mammal",
+    "habitat": "Forests, wetlands and cities in North America",
+    "diet": "Omnivore",
+    "facts": [
+      "Raccoons have very sensitive front paws and often 'wash' their food.",
+      "They are active mostly at night."
+    ]
+  },
+  "otter": {
+    "category": "Mammal",
+    "habitat": "Rivers, lakes and coasts",
+    "diet": "Carnivore (fish and shellfish)",
+    "facts": [
+      "Sea otters hold hands while sleeping so they do not drift apart.",
+      "Otters have the densest fur of any animal, with up to a million hairs per square inch (sea otters)."
+    ]
+  },
+  "seal": {
+    "category": "Mammal",
+    "habitat": "Oceans and coasts, especially cold waters",
+    "diet": "Carnivore (fish and squid)",
+    "facts": [
+      "Seals can hold their breath for many minutes while diving.",
+      "A thick layer of blubber keeps them warm in cold water."
+    ]
+  },
+  "dolphin": {
+    "category": "Mammal",
+    "habitat": "Oceans, coasts and some rivers",
+    "diet": "Carnivore (fish and squid)",
+    "facts": [
+      "Dolphins use echolocation to find food and navigate.",
+      "They communicate with whistles and clicks and live in social groups called pods."
+    ]
+  },
+  "whale": {
+    "category": "Mammal",
+    "habitat": "Oceans worldwide",
+    "diet": "Carnivore (krill, fish and squid)",
+    "facts": [
+      "The blue whale is the largest animal known to have ever lived.",
+      "Whales are mammals: they breathe air and feed their calves milk."
+    ]
+  },
+  "squirrel": {
+    "category": "Mammal (rodent)",
+    "habitat": "Forests, parks and gardens",
+    "diet": "Omnivore (nuts, seeds, fruit)",
+    "facts": [
+      "Squirrels bury thousands of nuts each year and forget some, which grow into trees.",
+      "Their bushy tails help with balance and keep them warm."
+    ]
+  },
+  "mouse": {
+    "category": "Mammal (rodent)",
+    "habitat": "Fields, forests, homes and farms",
+    "diet": "Omnivore",
+    "facts": [
+      "A mouse's teeth never stop growing.",
+      "Mice have an excellent sense of smell and hearing."
+    ]
+  },
+  "rat": {
+    "category": "Mammal (rodent)",
+    "habitat": "Cities, farms and forests worldwide",
+    "diet": "Omnivore",
+    "facts": [
+      "Rats are intelligent and can learn mazes quickly.",
+      "They are strong swimmers and climbers."
+    ]
+  },
+  "hamster": {
+    "category": "Mammal (rodent)",
+    "habitat": "Dry grasslands and deserts (wild); homes (pets)",
+    "diet": "Omnivore (seeds and grains)",
+    "facts": [
+      "Hamsters store food in their cheek pouches.",
+      "Most hamsters are nocturnal."
+    ]
+  },
+  "eagle": {
+    "category": "Bird",
+    "habitat": "Mountains, forests, coasts and open country",
+    "diet": "Carnivore",
+    "facts": [
+      "Eagles can spot prey from several kilometres away.",
+      "Many eagles build huge nests and reuse them for years."
+    ]
+  },
+  "parrot": {
+    "category": "Bird",
+    "habitat": "Tropical and subtropical forests and woodlands",
+    "diet": "Herbivore (seeds, nuts and fruit)",
+    "facts": [
+      "Many parrots can imitate human speech.",
+      "Parrots have strong curved beaks and zygodactyl feet (two toes forward, two back)."
+    ]
+  },
+  "owl": {
+    "category": "Bird",
+    "habitat": "Forests, grasslands, deserts and farmland worldwide",
+    "diet": "Carnivore",
+    "facts": [
+      "Owls can rotate their heads about 270 degrees.",
+      "Their feathers are soft, letting them fly almost silently."
+    ]
+  },
+  "peacock": {
+    "category": "Bird",
+    "habitat": "Forests and farmland of South Asia",
+    "diet": "Omnivore",
+    "facts": [
+      "Only males (peacocks) have the colourful train of feathers.",
+      "The Indian peafowl is the national bird of India."
+    ]
+  },
+  "crow": {
+    "category": "Bird",
+    "habitat": "Forests, farmland and cities worldwide",
+    "diet": "Omnivore",
+    "facts": [
+      "Crows are among the most intelligent birds and can use tools.",
+      "They can recognise individual human faces."
+    ]
+  },
+  "pigeon": {
+    "category": "Bird",
+    "habitat": "Cities, farmland, cliffs and woodland",
+    "diet": "Herbivore (seeds and grains)",
+    "facts": [
+      "Pigeons have been used to carry messages for thousands of years.",
+      "They have a remarkable ability to find their way home."
+    ]
+  },
+  "sparrow": {
+    "category": "Bird",
+    "habitat": "Towns, farmland, gardens and grasslands",
+    "diet": "Omnivore (seeds and insects)",
+    "facts": [
+      "House sparrows live closely with humans.",
+      "Sparrows are social and often feed in flocks."
+    ]
+  },
+  "flamingo": {
+    "category": "Bird",
+    "habitat": "Shallow lakes, lagoons and coastal wetlands",
+    "diet": "Omnivore (algae, shrimp, small invertebrates)",
+    "facts": [
+      "Flamingos get their pink colour from pigments in their food.",
+      "They often stand on one leg, which may help them conserve body heat."
+    ]
+  },
+  "penguin": {
+    "category": "Bird (flightless)",
+    "habitat": "Coasts and oceans of the Southern Hemisphere, especially Antarctica",
+    "diet": "Carnivore (fish, squid and krill)",
+    "facts": [
+      "Penguins cannot fly, but they are superb swimmers.",
+      "Emperor penguin fathers incubate the egg on their feet through the Antarctic winter."
+    ]
+  },
+  "duck": {
+    "category": "Bird",
+    "habitat": "Lakes, rivers, ponds and wetlands",
+    "diet": "Omnivore",
+    "facts": [
+      "Ducks have waterproof feathers coated with oil from a gland near the tail.",
+      "Ducklings can swim within hours of hatching."
+    ]
+  },
+  "goose": {
+    "category": "Bird",
+    "habitat": "Wetlands, lakes, grasslands and farmland",
+    "diet": "Herbivore",
+    "facts": [
+      "Geese often migrate in V-shaped formations.",
+      "They form strong, long-lasting pair bonds."
+    ]
+  },
+  "swan": {
+    "category": "Bird",
+    "habitat": "Lakes, rivers, ponds and wetlands",
+    "diet": "Herbivore (mostly water plants)",
+    "facts": [
+      "Swans mate for life in many species.",
+      "Young swans are called cygnets."
+    ]
+  },
+  "chicken": {
+    "category": "Bird",
+    "habitat": "Farms and backyards worldwide",
+    "diet": "Omnivore",
+    "facts": [
+      "Chickens descend from the red junglefowl of Southeast Asia.",
+      "A hen can lay a few hundred eggs a year, depending on breed."
+    ]
+  },
+  "turkey": {
+    "category": "Bird",
+    "habitat": "Woodlands and farms, native to North America",
+    "diet": "Omnivore",
+    "facts": [
+      "Male turkeys fan their tails and gobble to attract mates.",
+      "Wild turkeys can fly short distances and roost in trees."
+    ]
+  },
+  "ostrich": {
+    "category": "Bird (flightless)",
+    "habitat": "Savannas and deserts of Africa",
+    "diet": "Omnivore",
+    "facts": [
+      "The ostrich is the largest and heaviest living bird.",
+      "It can run at about 70 km/h."
+    ]
+  },
+  "toucan": {
+    "category": "Bird",
+    "habitat": "Tropical rainforests of Central and South America",
+    "diet": "Omnivore (mostly fruit)",
+    "facts": [
+      "The large colourful bill is light because it is mostly hollow.",
+      "Toucans use their bills to reach fruit on thin branches."
+    ]
+  },
+  "hummingbird": {
+    "category": "Bird",
+    "habitat": "Forests, gardens and meadows of the Americas",
+    "diet": "Nectar and small insects",
+    "facts": [
+      "Hummingbirds can hover and even fly backwards.",
+      "Their wings can beat dozens of times per second."
+    ]
+  },
+  "hornbill": {
+    "category": "Bird",
+    "habitat": "Tropical forests and savannas of Africa and Asia",
+    "diet": "Omnivore (mostly fruit)",
+    "facts": [
+      "Hornbills have a large curved bill topped with a casque.",
+      "In many species the female is sealed inside a tree hollow while nesting."
+    ]
+  },
+  "woodpecker": {
+    "category": "Bird",
+    "habitat": "Forests and woodlands",
+    "diet": "Insectivore",
+    "facts": [
+      "Woodpeckers drum on trees to find insects and communicate.",
+      "Special skull structure helps absorb the shock of pecking."
+    ]
+  },
+  "sandpiper": {
+    "category": "Bird",
+    "habitat": "Beaches, mudflats and wetlands",
+    "diet": "Insectivore (small invertebrates)",
+    "facts": [
+      "Sandpipers probe mud and sand with long bills to find food.",
+      "Many species migrate thousands of kilometres each year."
+    ]
+  },
+  "pelecaniformes": {
+    "category": "Bird",
+    "habitat": "Coasts, lakes, rivers and wetlands",
+    "diet": "Carnivore (fish)",
+    "facts": [
+      "This group of water birds includes pelicans, herons, ibises and spoonbills.",
+      "Pelicans have a large throat pouch used to scoop up fish."
+    ]
+  },
+  "snake": {
+    "category": "Reptile",
+    "habitat": "Forests, deserts, grasslands, wetlands and oceans (most regions except Antarctica)",
+    "diet": "Carnivore",
+    "facts": [
+      "Snakes smell by flicking their forked tongues.",
+      "Most snakes are not venomous, but all wild snakes should be left alone."
+    ]
+  },
+  "turtle": {
+    "category": "Reptile",
+    "habitat": "Oceans, rivers, ponds and land",
+    "diet": "Omnivore, herbivore or carnivore depending on species",
+    "facts": [
+      "A turtle's shell is part of its skeleton, fused to its spine and ribs.",
+      "Sea turtles return to the beaches where they hatched to lay eggs."
+    ]
+  },
+  "crocodile": {
+    "category": "Reptile",
+    "habitat": "Rivers, lakes, swamps and coasts in tropical regions",
+    "diet": "Carnivore",
+    "facts": [
+      "Crocodiles have changed little in millions of years.",
+      "They have one of the strongest bites of any animal."
+    ]
+  },
+  "lizard": {
+    "category": "Reptile",
+    "habitat": "Deserts, forests, grasslands and homes worldwide",
+    "diet": "Insectivore, omnivore or carnivore depending on species",
+    "facts": [
+      "Many lizards can drop their tails to escape predators, and regrow them.",
+      "Chameleons can move their eyes independently."
+    ]
+  },
+  "frog": {
+    "category": "Amphibian",
+    "habitat": "Ponds, rivers, wetlands and forests",
+    "diet": "Carnivore (insects and small animals)",
+    "facts": [
+      "Frogs start life as tadpoles in water.",
+      "Many frogs absorb water and oxygen through their skin."
+    ]
+  },
+  "fish": {
+    "category": "Fish",
+    "habitat": "Oceans, rivers, lakes and ponds",
+    "diet": "Varies: herbivore, omnivore or carnivore",
+    "facts": [
+      "Fish breathe underwater using gills.",
+      "There are more than 30,000 known species of fish."
+    ]
+  },
+  "goldfish": {
+    "category": "Fish",
+    "habitat": "Freshwater ponds and aquariums",
+    "diet": "Omnivore",
+    "facts": [
+      "Goldfish were first bred in China over a thousand years ago.",
+      "They can recognise their owners and learn simple routines."
+    ]
+  },
+  "shark": {
+    "category": "Fish",
+    "habitat": "Oceans worldwide",
+    "diet": "Carnivore",
+    "facts": [
+      "A shark's skeleton is made of cartilage, not bone.",
+      "Sharks can replace lost teeth throughout their lives."
+    ]
+  },
+  "seahorse": {
+    "category": "Fish",
+    "habitat": "Shallow tropical and temperate coastal waters",
+    "diet": "Carnivore (tiny crustaceans)",
+    "facts": [
+      "Male seahorses carry the eggs and give birth to the young.",
+      "They swim upright and hold on to plants with their tails."
+    ]
+  },
+  "butterfly": {
+    "category": "Insect",
+    "habitat": "Meadows, forests, gardens and wetlands worldwide",
+    "diet": "Nectar (adults); leaves (caterpillars)",
+    "facts": [
+      "Butterflies go through complete metamorphosis: egg, caterpillar, pupa, adult.",
+      "They taste with sensors on their feet."
+    ]
+  },
+  "moth": {
+    "category": "Insect",
+    "habitat": "Forests, fields, gardens and cities worldwide",
+    "diet": "Nectar or none (some adults do not eat)",
+    "facts": [
+      "Most moths are active at night.",
+      "Moths and butterflies belong to the same order, Lepidoptera."
+    ]
+  },
+  "caterpillar": {
+    "category": "Insect (larva)",
+    "habitat": "Plants in forests, fields and gardens",
+    "diet": "Herbivore (leaves)",
+    "facts": [
+      "Caterpillars are the larval stage of butterflies and moths.",
+      "A caterpillar's main job is to eat and grow before forming a pupa."
+    ]
+  },
+  "bee": {
+    "category": "Insect",
+    "habitat": "Meadows, forests, gardens and hives",
+    "diet": "Nectar and pollen",
+    "facts": [
+      "Bees pollinate many of the crops people eat.",
+      "Honey bees communicate food locations by dancing."
+    ]
+  },
+  "beetle": {
+    "category": "Insect",
+    "habitat": "Almost every land and freshwater habitat",
+    "diet": "Varies by species",
+    "facts": [
+      "Beetles are the largest group of animals, with hundreds of thousands of species.",
+      "Their front wings form hard cases that protect the flying wings."
+    ]
+  },
+  "ladybugs": {
+    "category": "Insect",
+    "habitat": "Gardens, fields and forests",
+    "diet": "Carnivore (mostly aphids)",
+    "facts": [
+      "A ladybug can eat many aphids a day, helping gardeners.",
+      "Their bright colours warn predators that they taste bad."
+    ]
+  },
+  "dragonfly": {
+    "category": "Insect",
+    "habitat": "Ponds, lakes, rivers and wetlands",
+    "diet": "Carnivore (flying insects)",
+    "facts": [
+      "Dragonflies have existed for about 300 million years.",
+      "Each of their four wings can move independently."
+    ]
+  },
+  "grasshopper": {
+    "category": "Insect",
+    "habitat": "Grasslands, meadows and fields",
+    "diet": "Herbivore",
+    "facts": [
+      "Grasshoppers can jump many times their body length.",
+      "Many species make sounds by rubbing their legs against their wings."
+    ]
+  },
+  "fly": {
+    "category": "Insect",
+    "habitat": "Almost everywhere humans live",
+    "diet": "Varies: nectar, decaying matter or other liquids",
+    "facts": [
+      "Flies have only one pair of wings; the second pair is reduced to tiny balancing organs.",
+      "Their compound eyes detect movement very quickly."
+    ]
+  },
+  "mosquito": {
+    "category": "Insect",
+    "habitat": "Wetlands, forests and human settlements",
+    "diet": "Nectar (males); nectar and blood (most females)",
+    "facts": [
+      "Only female mosquitoes bite, using blood for egg development.",
+      "Mosquitoes spread diseases such as malaria and dengue."
+    ]
+  },
+  "cockroach": {
+    "category": "Insect",
+    "habitat": "Homes, forests and sewers in warm regions",
+    "diet": "Omnivore",
+    "facts": [
+      "Cockroaches have lived on Earth for hundreds of millions of years.",
+      "Some species can survive for weeks without food."
+    ]
+  },
+  "spider": {
+    "category": "Arachnid",
+    "habitat": "Almost every land habitat",
+    "diet": "Carnivore (mostly insects)",
+    "facts": [
+      "Spiders have eight legs and are not insects.",
+      "Not all spiders spin webs; some hunt or ambush prey."
+    ]
+  },
+  "crab": {
+    "category": "Crustacean",
+    "habitat": "Oceans, shores, rivers and land",
+    "diet": "Omnivore",
+    "facts": [
+      "Crabs walk sideways.",
+      "They shed their hard shell as they grow."
+    ]
+  },
+  "lobster": {
+    "category": "Crustacean",
+    "habitat": "Rocky ocean floors",
+    "diet": "Omnivore",
+    "facts": [
+      "Lobsters have blue blood.",
+      "They can regrow lost claws and legs."
+    ]
+  },
+  "octopus": {
+    "category": "Mollusc",
+    "habitat": "Oceans, from coral reefs to the deep sea",
+    "diet": "Carnivore",
+    "facts": [
+      "Octopuses have three hearts.",
+      "They can change colour and texture to camouflage themselves."
+    ]
+  },
+  "squid": {
+    "category": "Mollusc",
+    "habitat": "Oceans worldwide",
+    "diet": "Carnivore",
+    "facts": [
+      "Squid move by jet propulsion.",
+      "Giant squid have the largest eyes of any animal."
+    ]
+  },
+  "oyster": {
+    "category": "Mollusc",
+    "habitat": "Shallow coastal waters and estuaries",
+    "diet": "Filter feeder",
+    "facts": [
+      "Oysters filter large amounts of water each day.",
+      "Some oysters produce pearls."
+    ]
+  },
+  "jellyfish": {
+    "category": "Cnidarian",
+    "habitat": "Oceans worldwide",
+    "diet": "Carnivore (plankton and small animals)",
+    "facts": [
+      "Jellyfish have no brain, heart or bones.",
+      "Their bodies are more than 90% water."
+    ]
+  },
+  "starfish": {
+    "category": "Echinoderm",
+    "habitat": "Ocean floors and tide pools",
+    "diet": "Carnivore",
+    "facts": [
+      "Starfish (sea stars) can regenerate lost arms.",
+      "They move using hundreds of tiny tube feet."
+    ]
+  },
+  "abyssinian": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Abyssinian is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "american_bulldog": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The American Bulldog is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "american_pit_bull_terrier": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The American Pit Bull Terrier is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "basset_hound": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Basset Hound is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "beagle": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Beagle is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "bengal": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Bengal is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "birman": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Birman is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "bombay": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Bombay is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "boxer": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Boxer is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "british_shorthair": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The British Shorthair is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "chihuahua": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Chihuahua is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "egyptian_mau": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Egyptian Mau is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "english_cocker_spaniel": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The English Cocker Spaniel is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "english_setter": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The English Setter is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "german_shorthaired": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The German Shorthaired is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "great_pyrenees": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Great Pyrenees is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "havanese": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Havanese is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "japanese_chin": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Japanese Chin is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "keeshond": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Keeshond is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "leonberger": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Leonberger is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "maine_coon": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Maine Coon is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "miniature_pinscher": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Miniature Pinscher is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "newfoundland": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Newfoundland is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "persian": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Persian is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "pomeranian": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Pomeranian is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "pug": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Pug is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "ragdoll": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Ragdoll is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "russian_blue": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Russian Blue is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "saint_bernard": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Saint Bernard is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "samoyed": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Samoyed is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "scottish_terrier": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Scottish Terrier is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "shiba_inu": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Shiba Inu is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "siamese": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Siamese is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "sphynx": {
+    "category": "Mammal (domestic cat)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Carnivore",
+    "facts": [
+      "The Sphynx is a recognised cat breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "staffordshire_bull_terrier": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Staffordshire Bull Terrier is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "wheaten_terrier": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Wheaten Terrier is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  },
+  "yorkshire_terrier": {
+    "category": "Mammal (domestic dog)",
+    "habitat": "Homes and domestic environments",
+    "diet": "Omnivore (mostly meat)",
+    "facts": [
+      "The Yorkshire Terrier is a recognised dog breed in the Oxford-IIIT Pet dataset."
+    ]
+  }
 }

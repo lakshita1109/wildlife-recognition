@@ -209,12 +209,14 @@
         return;
       }
       const custom = s.mode === "custom";
-      badge.textContent = custom ? "Custom trained model active" : "Pretrained ImageNet model active";
+      const hybrid = s.mode === "hybrid";
+      badge.textContent = custom ? "Custom trained model active"
+        : hybrid ? "Hybrid model active (animals + pet breeds)" : "Pretrained ImageNet model active";
 
-      let text = s.name + " · " + (custom ? "custom-trained" : "pretrained on ImageNet") +
-                 " · " + s.num_classes + (custom ? " classes" : " animal groups");
-      if (custom && s.validation_accuracy != null) text += " · validation accuracy " + s.validation_accuracy + "%";
-      if (custom && s.test_accuracy != null) text += " · test accuracy " + s.test_accuracy + "%";
+      let text = s.name + " · " + (custom ? "custom-trained" : hybrid ? "pretrained animals + custom-trained breeds" : "pretrained on ImageNet") +
+                 " · " + s.num_classes + (custom ? " classes" : " labels");
+      if ((custom || hybrid) && s.validation_accuracy != null) text += " · custom validation accuracy " + s.validation_accuracy + "%";
+      if ((custom || hybrid) && s.test_accuracy != null) text += " · custom test accuracy " + s.test_accuracy + "%";
       details.textContent = text;
       if (s.notice) showAlert(s.notice, "info");
 
