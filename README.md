@@ -17,7 +17,7 @@ It runs on a normal Windows laptop **without a GPU** and has two modes:
 
 ![Wildlife AI Preview](images/image.png)
 ![Wildlife AI Preview 2](images/img.png)
-![Wildlife AI Preview 2](look/img.png)
+![Wildlife AI Preview 3](look/img.png)
 
 
 ## 1. Features
