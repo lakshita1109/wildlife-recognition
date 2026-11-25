@@ -13,7 +13,7 @@ It runs on a normal Windows laptop **without a GPU** and has two modes:
 
 ---
 
-## Preview
+## Have a look!
 
 ![Wildlife AI Preview](images/image.png)
 ![Wildlife AI Preview 2](images/img.png)
