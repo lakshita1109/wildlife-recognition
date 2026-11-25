@@ -13,6 +13,9 @@ It runs on a normal Windows laptop **without a GPU** and has two modes:
 
 ---
 
+## Website Preview
+![Wildlife AI Preview](images/image.png)
+
 ## 1. Features
 
 * Real CNN inference (no hardcoded or random predictions)
