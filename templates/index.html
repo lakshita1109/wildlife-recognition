@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wildlife AI – Animal Image Classification &amp; Recognition System</title>
   <meta name="description" content="Upload an animal photo and let a deep-learning model identify it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <header class="navbar">
+  <header class="navbar" id="navbar">
     <a href="#home" class="brand" aria-label="Wildlife AI home">
       <svg class="logo" viewBox="0 0 48 48" aria-hidden="true">
         <circle cx="24" cy="24" r="22" fill="#2d5a3d"/>
@@ -18,41 +21,66 @@
         <path d="M14 36c6-8 12-13 20-17" stroke="#2d5a3d" stroke-width="2" fill="none" stroke-linecap="round"/>
         <circle cx="31" cy="24" r="2" fill="#2d5a3d"/>
       </svg>
-      <span>Wildlife <strong>AI</strong></span>
+      <span>Wildlife <strong></strong></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
     <nav class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#recognize">Animal Recognition</a>
-      <a href="#about">About</a>
+      <a href="#home" data-section="home">Home</a>
+      <a href="#recognize" data-section="recognize">Animal Recognition</a>
+      <a href="#about" data-section="about">About</a>
+      <span class="nav-pill" id="navPill" aria-hidden="true"></span>
     </nav>
   </header>
 
   <main>
     <!-- HERO -->
     <section class="hero" id="home">
-      <svg class="hero-art" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 400V250l180-90 160 70 200-130 220 120 180-80 200 100 100-50v210z" fill="#1f4430" opacity=".55"/>
-        <path d="M0 400V300l140-60 180 50 220-90 240 80 200-60 260 90v90z" fill="#163524" opacity=".8"/>
-        <g fill="#0f2a1c">
-          <path d="M80 400l30-110 30 110z"/><path d="M130 400l25-85 25 85z"/>
-          <path d="M1180 400l30-120 30 120z"/><path d="M1240 400l25-90 25 90z"/><path d="M1300 400l32-115 32 115z"/>
-        </g>
+      <div class="moon" aria-hidden="true"></div>
+      <div class="fireflies" id="fireflies" aria-hidden="true"></div>
+
+      <svg class="layer ridge r1" data-speed="0.12" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 400V240l150-80 150 60 190-120 210 110 170-70 190 90 190-60 190 80v250z" fill="#1d4731"/>
       </svg>
+      <svg class="layer ridge r2" data-speed="0.22" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 400V290l130-60 170 50 210-90 230 80 190-60 250 80 260-40v150z" fill="#143723"/>
+      </svg>
+      <svg class="layer trees" data-speed="0.34" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <g class="tree t1"><path d="M70 300l36-150 36 150z" fill="#0c2216"/><path d="M82 230l24-100 24 100z" fill="#0c2216"/></g>
+        <g class="tree t2"><path d="M150 300l28-110 28 110z" fill="#0c2216"/></g>
+        <g class="tree t3"><path d="M1160 300l38-160 38 160z" fill="#0c2216"/><path d="M1172 220l26-110 26 110z" fill="#0c2216"/></g>
+        <g class="tree t4"><path d="M1250 300l30-120 30 120z" fill="#0c2216"/></g>
+        <g class="tree t5"><path d="M1330 300l40-165 40 165z" fill="#0c2216"/><path d="M1344 220l26-110 26 110z" fill="#0c2216"/></g>
+        <path d="M0 300V270c120-14 260-8 420 4s300 6 520-6 330-10 500 4v28z" fill="#0c2216"/>
+      </svg>
+
+      <div class="birds" aria-hidden="true">
+        <span class="bird" style="top:18%;--t:26s;--d:-4s"><svg viewBox="0 0 30 12"><path d="M1 9 Q8 -2 15 9 Q22 -2 29 9"/></svg></span>
+        <span class="bird" style="top:27%;--t:34s;--d:-18s;width:20px"><svg viewBox="0 0 30 12"><path d="M1 9 Q8 -2 15 9 Q22 -2 29 9"/></svg></span>
+        <span class="bird" style="top:12%;--t:40s;--d:-27s;width:16px"><svg viewBox="0 0 30 12"><path d="M1 9 Q8 -2 15 9 Q22 -2 29 9"/></svg></span>
+      </div>
+      <div class="nightvision" aria-hidden="true"></div>
+
       <div class="hero-inner">
         <span class="badge" id="modeBadge">Loading model…</span>
-        <h1>Identify wildlife with <span>artificial intelligence</span></h1>
-        <p>Upload a photo and our deep-learning model will analyse it and tell you which animal it sees,
-           how confident it is, and what makes that animal special.</p>
+        <h1>
+          <span class="line"><span>Point a photo at the wild.</span></span>
+          <span class="line"><span>Get the animal's name.</span></span>
+        </h1>
+        <p class="hero-sub">Upload a picture and a deep-learning model will tell you which animal it sees,
+           how sure it is, and where that animal lives and what it eats.</p>
         <div class="hero-actions">
           <a href="#recognize" class="btn btn-primary" id="heroUpload">Upload an Image</a>
           <a href="#about" class="btn btn-ghost">How it works</a>
         </div>
       </div>
+      <div class="scroll-hint" aria-hidden="true"><span></span></div>
     </section>
 
+    <!-- ANIMAL RIBBON (filled from the model's real class list) -->
+    <div class="marquee" id="marquee" aria-hidden="true" hidden><div class="marquee-track" id="marqueeTrack"></div></div>
+
     <!-- RECOGNITION -->
-    <section class="section" id="recognize">
+    <section class="section recognize" id="recognize">
       <div class="container">
         <h2 class="section-title">Animal Recognition</h2>
         <p class="section-sub">Drop in a clear photo of a single animal for the best results.</p>
@@ -61,9 +89,11 @@
 
         <div class="recognize-grid">
           <!-- Upload card -->
-          <div class="card">
+          <div class="card upload-card">
             <div class="dropzone" id="dropzone" tabindex="0" role="button"
                  aria-label="Drop an image here or press Enter to browse">
+              <span class="vf tl" aria-hidden="true"></span><span class="vf tr" aria-hidden="true"></span>
+              <span class="vf bl" aria-hidden="true"></span><span class="vf br" aria-hidden="true"></span>
               <div class="dz-empty" id="dzEmpty">
                 <svg viewBox="0 0 64 64" class="dz-icon" aria-hidden="true">
                   <path d="M32 44V20M32 20l-10 10M32 20l10 10" stroke="#2d5a3d" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -74,10 +104,12 @@
                 <button type="button" class="btn btn-secondary" id="browseBtn">Browse Image</button>
               </div>
               <img id="previewImg" class="preview" alt="Selected image preview" hidden>
+              <div class="scanline" aria-hidden="true"></div>
+              <div class="lock-tag" id="lockTag" hidden></div>
             </div>
             <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.webp,.bmp,image/jpeg,image/png,image/webp,image/bmp" hidden>
 
-            <p class="hint">Supported formats: {{ extensions | map('upper') | join(', ') }} &nbsp;·&nbsp; Max size: {{ max_mb }} MB</p>
+            <p class="hint">Supported formats: {{ extensions | map('upper') | join(', ') }}. Max size: {{ max_mb }} MB.</p>
             <p class="file-name" id="fileName"></p>
 
             <div class="actions">
@@ -89,21 +121,35 @@
           <!-- Result card -->
           <div class="card result-card" id="resultCard">
             <div class="placeholder" id="resultPlaceholder">
+              <svg class="paw" viewBox="0 0 64 64" aria-hidden="true">
+                <ellipse cx="32" cy="42" rx="13" ry="10" fill="currentColor"/>
+                <ellipse cx="14" cy="28" rx="6" ry="8" fill="currentColor"/>
+                <ellipse cx="26" cy="17" rx="6" ry="8" fill="currentColor"/>
+                <ellipse cx="38" cy="17" rx="6" ry="8" fill="currentColor"/>
+                <ellipse cx="50" cy="28" rx="6" ry="8" fill="currentColor"/>
+              </svg>
               <p class="muted">Your result will appear here.</p>
             </div>
 
             <div class="loading" id="loading" hidden>
-              <div class="spinner" aria-hidden="true"></div>
+              <div class="radar" aria-hidden="true"><span></span><span></span><span></span></div>
               <p>Analysing image…</p>
             </div>
 
             <div id="resultContent" hidden>
               <div class="result-head">
                 <img id="resultImg" class="result-img" alt="Uploaded image">
-                <div>
+                <div class="result-text">
                   <p class="label">Predicted animal</p>
                   <h3 id="animalName">–</h3>
-                  <p class="confidence"><span id="confidenceValue">0</span>% confidence</p>
+                  <p class="confidence">confidence</p>
+                </div>
+                <div class="ring" aria-label="Confidence">
+                  <svg viewBox="0 0 120 120" aria-hidden="true">
+                    <circle class="ring-bg" cx="60" cy="60" r="52"/>
+                    <circle class="ring-fill" id="ringFill" cx="60" cy="60" r="52"/>
+                  </svg>
+                  <span class="ring-num"><span id="confidenceValue">0</span>%</span>
                 </div>
               </div>
               <p class="notice" id="resultMessage" hidden></p>
@@ -132,29 +178,36 @@
       <div class="container">
         <h2 class="section-title">About the Project</h2>
         <div class="about-grid">
-          <div class="card">
+          <div class="card reveal">
             <h3>What it does</h3>
             <p>Wildlife AI is a web application for animal and wildlife monitoring. You upload a photo, the
                server runs it through a neural network, and you get the most likely animals together with
                confidence scores and a short fact sheet.</p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <h3>How image classification works</h3>
             <p>An image is a grid of pixel values. A convolutional neural network (CNN) passes those pixels
                through many layers: early layers detect edges and colours, middle layers detect textures and
                shapes such as fur, feathers or scales, and the final layers combine them into a score for
                every animal it knows.</p>
           </div>
-          <div class="card">
+          <div class="card reveal">
             <h3>How this model recognises animals</h3>
-            <p>It uses <strong>MobileNetV3</strong>, a compact CNN already trained on over a million
-               ImageNet photos (transfer learning). The image is resized to 224×224, normalised, and
-               converted to probabilities with softmax. If the best probability is too low the app says it
-               is unsure instead of guessing.</p>
+            <p>It uses <strong>MobileNetV3</strong>, a compact CNN pretrained on the ImageNet dataset
+               (transfer learning). The image is resized to 224×224, normalised, and converted to
+               probabilities with softmax. A first pass recognises the general animal. If it is a cat or
+               a dog, a second model fine-tuned on pet breeds names the breed. If the best probability is
+               too low, the app says it is unsure instead of guessing.</p>
           </div>
         </div>
-        <div class="card model-card">
-          <h3>Current model</h3>
+        <div class="card model-card reveal">
+          <h3>Datasets used</h3>
+          <p><strong>Oxford-IIIT Pet Dataset:</strong> about 7,300 photos of 37 cat and dog breeds, created by the
+             Visual Geometry Group at the University of Oxford and IIIT Hyderabad. We split it 70% training,
+             15% validation and 15% testing, and used it to fine-tune the breed model.</p>
+          <p><strong>ImageNet:</strong> over a million photos in 1,000 classes. The pretrained MobileNetV3 learned
+             from it, and its animal classes are what recognise lions, elephants, birds, reptiles and more.</p>
+          <h3 class="sub-h">Current model</h3>
           <p id="modelDetails" class="muted">Loading…</p>
           <details id="supportedWrap" hidden>
             <summary>Animals this model can recognise (<span id="supportedCount">0</span>)</summary>
@@ -171,7 +224,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <span class="brand-small">Wildlife <strong>AI</strong> – Animal Image Classification &amp; Recognition System</span>
-      <span class="muted-light">College project · Built with PyTorch, Flask, HTML, CSS &amp; JavaScript</span>
+      <span class="muted-light">College project built with PyTorch, Flask, HTML, CSS and JavaScript</span>
     </div>
   </footer>
 

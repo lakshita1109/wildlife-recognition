@@ -27,6 +27,8 @@
   function hideAlert() { alertBox.hidden = true; }
 
   function resetResults() {
+    dropzone.classList.remove("locked");
+    $("lockTag").hidden = true;
     resultContent.hidden = true;
     loading.hidden = true;
     infoCard.hidden = true;
@@ -116,6 +118,9 @@
     resultContent.hidden = true;
     infoCard.hidden = true;
     loading.hidden = false;
+    dropzone.classList.add("scanning");
+    dropzone.classList.remove("locked");
+    $("lockTag").hidden = true;
     $("resultCard").scrollIntoView({ behavior: "smooth", block: "nearest" });
 
     const form = new FormData();
@@ -140,6 +145,7 @@
       showAlert("Cannot reach the Wildlife AI server. Make sure 'python app.py' is still running, then try again.");
     } finally {
       busy = false;
+      dropzone.classList.remove("scanning");
       identifyBtn.disabled = !selectedFile;
     }
   });
@@ -149,7 +155,8 @@
     loading.hidden = true;
     $("resultImg").src = previewUrl;
     $("animalName").textContent = data.identified ? data.predicted_animal : "Not sure";
-    $("confidenceValue").textContent = data.confidence.toFixed(1);
+    showConfidence(data.confidence, data.identified);
+    lockOn(data);
 
     const msg = $("resultMessage");
     if (data.message) { msg.textContent = data.message; msg.hidden = false; } else { msg.hidden = true; }
@@ -177,6 +184,74 @@
     resultContent.hidden = false;
 
     if (data.animal_info) renderInfo(data.animal_info);
+  }
+
+  const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const RING_LENGTH = 326.7;
+
+  function showConfidence(value, identified) {
+    const ring = $("ringFill"), num = $("confidenceValue");
+    ring.classList.toggle("low", !identified);
+    ring.style.strokeDashoffset = RING_LENGTH;
+    if (REDUCED) {
+      num.textContent = value.toFixed(1);
+      ring.style.strokeDashoffset = RING_LENGTH * (1 - value / 100);
+      return;
+    }
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      ring.style.strokeDashoffset = RING_LENGTH * (1 - value / 100);
+    }));
+    const start = performance.now(), duration = 1300;
+    (function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      num.textContent = (value * (1 - Math.pow(1 - t, 3))).toFixed(1);
+      if (t < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+
+  function lockOn(data) {
+    const tag = $("lockTag");
+    tag.textContent = (data.identified ? data.predicted_animal : "Not sure") + "  " + data.confidence.toFixed(1) + "%";
+    tag.className = "lock-tag" + (data.identified ? "" : " unsure");
+    tag.hidden = false;
+    dropzone.classList.add("locked");
+    if (data.identified) leafBurst();
+  }
+
+  function leafBurst() {
+    if (REDUCED) return;
+    const ring = document.querySelector(".ring");
+    const colors = ["#a8d5a2", "#2d5a3d", "#8b6b4a", "#6fa876"];
+    for (let i = 0; i < 18; i++) {
+      const leaf = document.createElement("span");
+      const angle = (i / 18) * Math.PI * 2 + Math.random() * 0.4;
+      const dist = 70 + Math.random() * 60;
+      leaf.className = "leaf";
+      leaf.style.setProperty("--dx", (Math.cos(angle) * dist).toFixed(0) + "px");
+      leaf.style.setProperty("--dy", (Math.sin(angle) * dist).toFixed(0) + "px");
+      leaf.style.setProperty("--rot", (Math.random() * 540 - 270).toFixed(0) + "deg");
+      leaf.style.setProperty("--c", colors[i % colors.length]);
+      ring.appendChild(leaf);
+      setTimeout(() => leaf.remove(), 1500);
+    }
+  }
+
+  function buildMarquee(names) {
+    const box = $("marquee"), track = $("marqueeTrack");
+    if (!names || !names.length) return;
+    let items = names.slice();
+    while (items.length < 24) items = items.concat(names);
+    track.textContent = "";
+    for (let copy = 0; copy < 2; copy++) {          // two identical halves = seamless loop
+      items.forEach((name) => {
+        const el = document.createElement("span");
+        el.className = "marquee-item";
+        el.textContent = name;
+        track.appendChild(el);
+      });
+    }
+    track.style.animationDuration = Math.max(40, items.length * 2.2) + "s";
+    box.hidden = false;
   }
 
   function renderInfo(info) {
@@ -231,6 +306,7 @@
           chips.appendChild(c);
         });
         $("supportedWrap").hidden = false;
+        buildMarquee(s.supported_animals);
       }
     } catch (_) {
       badge.textContent = "Server unreachable";
@@ -249,6 +325,98 @@
     navLinks.classList.remove("open");
     navToggle.setAttribute("aria-expanded", "false");
   });
+
+  /* ---------- navbar: solid on scroll, sliding pill on the active section ---------- */
+  const navbar = $("navbar"), pill = $("navPill");
+  const links = Array.from(navLinks.querySelectorAll("a[data-section]"));
+
+  function movePill(link) {
+    links.forEach((l) => l.classList.toggle("active", l === link));
+    if (!link || getComputedStyle(pill).display === "none") return;
+    pill.style.width = link.offsetWidth + "px";
+    pill.style.transform = "translateX(" + link.offsetLeft + "px)";
+  }
+  function currentSection() {
+    let found = links[0];
+    links.forEach((l) => {
+      const el = document.getElementById(l.dataset.section);
+      if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.4) found = l;
+    });
+    return found;
+  }
+
+  /* ---------- hero parallax: scroll + pointer, and the night-vision scope ---------- */
+  const layers = Array.from(document.querySelectorAll(".layer"));
+  const hero = $("home");
+  let ticking = false, px = 0;
+
+  function applyLayers() {
+    if (REDUCED) return;
+    const y = window.scrollY;
+    if (y > window.innerHeight * 1.2) return;
+    layers.forEach((layer) => {
+      const sp = parseFloat(layer.dataset.speed);
+      layer.style.transform = "translate3d(" + (px * sp * -60).toFixed(1) + "px," + (y * sp).toFixed(1) + "px,0)";
+    });
+  }
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      navbar.classList.toggle("scrolled", window.scrollY > 40);
+      movePill(currentSection());
+      applyLayers();
+      ticking = false;
+    });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll();
+
+  if (!REDUCED && window.matchMedia("(pointer: fine)").matches) {
+    let raf = 0;
+    hero.addEventListener("pointerenter", () => hero.classList.add("hunting"));
+    hero.addEventListener("pointerleave", () => { hero.classList.remove("hunting"); px = 0; applyLayers(); });
+    hero.addEventListener("pointermove", (e) => {
+      const r = hero.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        hero.style.setProperty("--mx", (x * 100).toFixed(1) + "%");
+        hero.style.setProperty("--my", (y * 100).toFixed(1) + "%");
+        px = x - 0.5;
+        applyLayers();
+      });
+    });
+  }
+
+  /* ---------- fireflies ---------- */
+  if (!REDUCED) {
+    const box = $("fireflies");
+    for (let i = 0; i < 16; i++) {
+      const f = document.createElement("span");
+      f.className = "firefly";
+      f.style.left = (Math.random() * 100).toFixed(1) + "%";
+      f.style.top = (30 + Math.random() * 55).toFixed(1) + "%";
+      f.style.setProperty("--s", (3 + Math.random() * 3).toFixed(1) + "px");
+      f.style.setProperty("--d", (7 + Math.random() * 7).toFixed(1) + "s");
+      f.style.setProperty("--delay", (-Math.random() * 10).toFixed(1) + "s");
+      f.style.setProperty("--x", ((Math.random() - 0.5) * 120).toFixed(0) + "px");
+      f.style.setProperty("--y", ((Math.random() - 0.5) * 90).toFixed(0) + "px");
+      box.appendChild(f);
+    }
+  }
+
+  /* ---------- reveal About cards on scroll ---------- */
+  const reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !REDUCED) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add("in"));
+  }
 
   loadStatus();
 })();
